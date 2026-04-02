@@ -14,9 +14,14 @@ function useFoodSearch() {
       const url = `https://world.openfoodfacts.org/cgi/search.pl`
       const response = await axios.get(url, {
         params: {
+          action: 'process',
+          search_simple: 1,
           search_terms: query,
           json: 1,
           page_size: 10,
+        },
+        headers: {
+          Accept: 'application/json',
         },
       })
 
